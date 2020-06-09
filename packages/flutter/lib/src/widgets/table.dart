@@ -132,13 +132,13 @@ class Table extends RenderObjectWidget {
        assert(() {
          if (children.isNotEmpty) {
            final int cellCount = children.first.children.length;
-           if (children.any((TableRow row) => row.children.length != cellCount)) {
-             throw FlutterError(
-               'Table contains irregular row lengths.\n'
-               'Every TableRow in a Table must have the same number of children, so that every cell is filled. '
-               'Otherwise, the table will contain holes.'
-             );
-           }
+          //  if (children.any((TableRow row) => row.children.length != cellCount)) {
+          //    throw FlutterError(
+          //      'Table contains irregular row lengths.\n'
+          //      'Every TableRow in a Table must have the same number of children, so that every cell is filled. '
+          //      'Otherwise, the table will contain holes.'
+          //    );
+          //  }
          }
          return true;
        }()),
@@ -227,7 +227,7 @@ class Table extends RenderObjectWidget {
   void updateRenderObject(BuildContext context, RenderTable renderObject) {
     assert(debugCheckHasDirectionality(context));
     assert(renderObject.columns == (children.isNotEmpty ? children[0].children.length : 0));
-    assert(renderObject.rows == children.length);
+    //assert(renderObject.rows == children.length);
     renderObject
       ..columnWidths = columnWidths
       ..defaultColumnWidth = defaultColumnWidth
